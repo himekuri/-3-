@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Card from "../parts/Card";
 import styled from "styled-components";
+import axios from 'axios';
 
 const StampCard = styled.div`
     width: 250px;
