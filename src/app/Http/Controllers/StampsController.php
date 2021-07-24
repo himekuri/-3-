@@ -13,21 +13,25 @@ class StampsController extends Controller
     {
         $user = Auth::user();
 
-        $oldStampDate = $user->stamps()->latest()->first()->date;
+        $oldStamp = $user->stamps()->latest()->first();
+        $oldStampDate = $oldStamp->date;
 
-        $newStampDate = Carbon::now()->toDateString();
+        $newStampDate = Carbon::today();
+
+        $number = $oldStamp->id %10;
 
         if($oldStampDate == $newStampDate){
-            return redirect()->back()->with('error', '今日のスタンプは押されています！');
-        }
-
-        $stamp = Stamp::create([
+            $message = '今日の分のスタンプはもう押されているよ';
+            return array('number' => $number, 'message' => $message);
+        }else{
+            $stamp = Stamp::create([
             'user_id' => $user->id,
             'date' => $newStampDate,
-        ]);
+            ]);
+            $message = 'おはよう！今日も1日頑張ろう！';
+            $number = $stamp->id %10;
 
-        $number = $stamp->id %10;
-
-        return $number;
+            return array('number' => $number, 'message' => $message);
+        }
     }
 }
