@@ -3,7 +3,12 @@ import Card from "../parts/Card";
 import Overlay from "../Layouts/Overlay";
 import ReactCardFlip from "react-card-flip";
 
-const fortuneResult = ["大吉", "中吉", "吉", "凶"];
+const fortuneResult = [
+    { fortune: "大吉", color: "text-red-500" },
+    { fortune: "中吉", color: "text-blue-500" },
+    { fortune: "吉", color: "text-green-500" },
+    { fortune: "凶", color: "text-black" }
+];
 const luckyItem = [
     "鉛筆",
     "ペットボトル",
@@ -25,7 +30,7 @@ const luckyColor = [
 
 const Fortune: React.FC = ({ closeNav }: any) => {
     const [display, setDisplay] = useState(false);
-    const [fortune, setFortune] = useState("");
+    const [fortune, setFortune] = useState({});
     const [color, setColor] = useState("");
     const [item, setItem] = useState("");
 
@@ -62,13 +67,16 @@ const Fortune: React.FC = ({ closeNav }: any) => {
                 <div>
                     <Overlay>
                         <div className="">
+                            <p className="text-gray-50 mb-6 text-xl">
+                                おみくじをタップしてね！
+                            </p>
                             <div className="container" onClick={closeNav}>
                                 <ReactCardFlip isFlipped={isFlipped}>
                                     <div
-                                        className="bg-white"
+                                        className="bg-white py-20 px-20"
                                         onClick={flipCard}
                                     >
-                                        <div className="flex flex-col text-red-600">
+                                        <div className="flex flex-col text-red-600 text-xl font-bold">
                                             <span>お</span>
                                             <span>み</span>
                                             <span>く</span>
@@ -77,27 +85,39 @@ const Fortune: React.FC = ({ closeNav }: any) => {
                                     </div>
                                     <div
                                         onClick={flipCard}
-                                        className="bg-white text-left m-auto"
+                                        className="bg-white text-left m-auto text-xl py-10 px-10"
                                     >
-                                        <p className="py-2">
-                                            今日の運勢は{fortune}です
+                                        <p className='py-4'>
+                                            今日の運勢は
+                                            <span className={`text-2xl font-semibold ${fortune.color}`}>
+                                                {fortune.fortune}
+                                            </span>
+                                            です
                                         </p>
-                                        <p className="pb-2">
-                                            <span className="text-blue-500">ラッキーアイテム</span>：{item}
+                                        <p className="pb-4">
+                                            <span className="text-blue-500">
+                                                ラッキーアイテム
+                                            </span>
+                                            ：{item}
                                         </p>
-                                        <p className="pb-2">
-                                        <span className="text-green-500">ラッキーカラー</span>：{color}
+                                        <p className="pb-4">
+                                            <span className="text-green-500">
+                                                ラッキーカラー
+                                            </span>
+                                            ：{color}
                                         </p>
-                                        <p className="pb-2">今日も1日頑張ろう！！</p>
+                                        <p className="pb-4">
+                                            今日も1日頑張ろう！！
+                                        </p>
                                     </div>
                                 </ReactCardFlip>
                             </div>
                             <button
-                                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-6"
                                 type="button"
                                 onClick={closeMordal}
                             >
-                                戻る
+                                トップに戻る
                             </button>
                         </div>
                     </Overlay>
