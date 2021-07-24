@@ -1,21 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Layout from "./Layouts/Layout";
-import Top from "./component/Top";
-import Proverb from "./component/Proverb";
-import Fortune from "./component/Fortune";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import TopPage from "./Page/TopPage";
+import LogInPage from "./Page/LogInPage";
+import "tailwindcss/tailwind.css";
 
 const App: React.FC = () => {
     return (
-        <>
-            <Layout>
-                <div className="grid grid-cols-2 gap-6">
-                    <Top />
-                    <Proverb />
-                    <Fortune />
-                </div>
-            </Layout>
-        </>
+        <Router>
+            <Switch>
+                <Route path="/" exact component={TopPage} />
+                <Route path="/LogInPage" component={LogInPage} />
+            </Switch>
+        </Router>
     );
 };
 
