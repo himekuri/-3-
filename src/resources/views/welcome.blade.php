@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Laravel</title>
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}" />
-    </head>
-    <body>
-        <div id="app"></div>
-    </body>
-    <script src="{{ mix('/js/index.js') }}"></script>
-</html>
+@extends('layouts.app')
+
+@section('content')
+    @if (Auth::check())
+    <div id="app"></div>
+    @else
+    <div class="center jumbotron">
+        <div class="text-center">
+            <h1>Morning Happy</h1>
+        </div>
+    </div>
+    @endif
+@endsection
