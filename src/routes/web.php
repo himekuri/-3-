@@ -26,3 +26,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth'], function() {
     Route::post('/punchin', 'StampsController@punchIn')->name('stamp/punchin');
 });
+
+Route::get('/{any}', function () {
+    return view('welcome');
+})->where('any','.*');
