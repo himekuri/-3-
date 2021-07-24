@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Todo;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CreateTodo;
+use App\Http\Requests\EditTodo;
+use Illuminate\Http\Request;
 
 class TodosController extends Controller
 {
@@ -56,7 +57,7 @@ class TodosController extends Controller
         $todo->save();
     }
 
-    public function showEditForm(int $id, int $user_id)
+    public function showEditForm(int $id)
     {
         $todo = Todo::find($id);
 
@@ -64,8 +65,16 @@ class TodosController extends Controller
             'todo' => $todo,
         ]);
     }
-    public function edit()
+    public function edit(int $todo_id, EditTodo $request)
     {
-        
+        $todo = Todo::find($todo_id);
+
+        $todo->content = $request->content;
+        $todo->status = $request->status;
+        $todo->deadline = $request->deadline;
+
+        $todo->save();
+
+        return redirect()->route('todos.index');
     }
 }
