@@ -46,8 +46,8 @@ const Stamp = () => {
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
                     <div>
                         <StampCard>
-                            <FirstCard src="stamp1.png" alt="" />
-                            <SecondCard src="stamp2.png" alt="" />
+                            <FirstCard src="stamp0.png" alt="" />
+                            <SecondCard src="stamp1.png" alt="" />
                         </StampCard>
                         <div className="text-center">
                             <button
