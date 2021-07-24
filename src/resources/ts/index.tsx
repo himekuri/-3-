@@ -21,3 +21,7 @@ const App: React.FC = () => {
 if (document.getElementById("app")) {
     ReactDOM.render(<App />, document.getElementById("app"));
 }
+
+if (document.getElementById('app')) {
+    ReactDOM.render(<App />, document.getElementById('app'));
+}
