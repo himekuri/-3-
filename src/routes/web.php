@@ -32,6 +32,10 @@ Auth::routes();
 
 //Todo機能
 Route::get('/todos', 'TodosController@index')->name('todos.index');
+Route::get('/todos/create', 'TodosController@showCreateForm')->name('todos.create');
+Route::post('/todos/create', 'TodosController@create');
+Route::get('/todos/edit', 'TodosController@showEditForm')->name('todos.edit');
+Route::post('/todos/edit', 'TodosController@edit');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
