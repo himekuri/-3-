@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import TopPage from "./Page/TopPage";
 import LogInPage from "./Page/LogInPage";
+import TodoListPage from "./Page/TodoListPage";
 import "tailwindcss/tailwind.css";
 
 const App: React.FC = () => {
@@ -11,6 +12,7 @@ const App: React.FC = () => {
             <Switch>
                 <Route path="/" exact component={TopPage} />
                 <Route path="/LogInPage" component={LogInPage} />
+                <Route path="/todoListPage" component={TodoListPage} />
             </Switch>
         </Router>
     );

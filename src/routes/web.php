@@ -25,13 +25,16 @@ Route::post('login', 'Auth\LoginController@login');
 Route::get('logout', 'Auth\LoginController@logout');
 
 // スタンプ機能
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => 'auth'], function () {
     Route::post('/punchin', 'StampsController@punchIn');
 });
 Auth::routes();
+
+//Todo機能
+Route::get('/todos', 'TodosController@index')->name('todos.index');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/{any}', function () {
     return view('welcome');
-})->where('any','.*');
+})->where('any', '.*');
