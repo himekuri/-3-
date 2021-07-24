@@ -50,10 +50,7 @@ const Stamp = () => {
                             <SecondCard src="stamp1.png" alt="" />
                         </StampCard>
                         <div className="text-center">
-                            <button
-                                onClick={openMordal}
-                                className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded my-5 mr-3"
-                            >
+                            <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded my-5 mr-3">
                                 スタンプ押す
                             </button>
                             <button
