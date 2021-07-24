@@ -41,7 +41,7 @@
                         <div class="panel-heading">タスク</div>
                         <div class="panel-body">
                             <div class="text-right">
-                                <a href="#" class="btn btn-default btn-block">
+                                <a href="{{route('todos.create')}}" class="btn btn-default btn-block">
                                     タスクを追加する
                                 </a>
                             </div>
@@ -60,9 +60,9 @@
                                 <tr>
                                     <td>{{ $todo->content }}</td>
                                     <td>
-                                        <span class="label">{{ $todo->status_label }}</span>
+                                        <span class="label {{ $todo->status_class }}">{{ $todo->status_label }}</span>
                                     </td>
-                                    <td>{{ $todo->deadline }}</td>
+                                    <td>{{ $todo->formatted_due_date }}</td>
                                     <td><a href="#">編集</a></td>
                                 </tr>
                                 @endforeach

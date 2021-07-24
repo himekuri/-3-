@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Todo extends Model
@@ -12,6 +13,7 @@ class Todo extends Model
         'done' => [ 'label' => '完了' , 'class'=> ''],
         'expired' =>[ 'lavel' => '期限切れ', 'class'=>'']
     ];
+
 
     /**
      * 状態のラベル
@@ -28,5 +30,19 @@ class Todo extends Model
         }
 
         return self::STATUS[$status]['label'];
+    }
+    /**
+     * 整形した期限日
+     * @retrun string
+     */
+
+    public function getFormattedDueDateAttribute()
+    {
+        return Carbon::createFromFormat('Y-m-d', $this->attributes['deadline'])->format('Y/m/d');
+    }
+
+    public function todos()
+    {
+        return $this->belongsTo('App\User');
     }
 }
