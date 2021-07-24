@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "../parts/Card";
 import styled from "styled-components";
+import axios from "axios";
 
 const StampCard = styled.div`
     width: 250px;
@@ -34,9 +35,20 @@ const SecondCard = styled.img`
 
 const Stamp = () => {
     const [display, setDisplay] = useState(false);
+
+    const getStamp = async () => {
+        const data = await axios.get("api/punchin");
+        console.log(data);
+    };
     const openMordal = () => {
         setDisplay(!display);
+        getStamp();
     };
+
+    const closeMordal = () => {
+        setDisplay(!display);
+    };
+
     return (
         <div>
             <button onClick={openMordal}>
@@ -57,7 +69,7 @@ const Stamp = () => {
                                 スタンプ押す
                             </button>
                             <button
-                                onClick={openMordal}
+                                onClick={closeMordal}
                                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-5"
                             >
                                 閉じる
