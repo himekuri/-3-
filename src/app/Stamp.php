@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Stamp extends Model
 {
-    protected $fillable = ['date'];
+    protected $fillable = [
+        'user_id','date',
+    ];
 
     /**
      * ユーザー関連付け
