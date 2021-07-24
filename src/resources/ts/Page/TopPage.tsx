@@ -3,6 +3,8 @@ import Layout from "../Layouts/Layout";
 import Top from "../component/Top";
 import Proverb from "../component/Proverb";
 import Fortune from "../component/Fortune";
+import { Link } from "react-router-dom";
+import Card from "../parts/Card";
 
 const TopPage = () => {
     return (
@@ -12,6 +14,9 @@ const TopPage = () => {
                     <Top />
                     <Proverb />
                     <Fortune />
+                    <Link to="/TodoListPage">
+                        <Card text={"todoリスト"} img={"toast.png"} />
+                    </Link>
                 </div>
             </Layout>{" "}
         </>
