@@ -17,8 +17,8 @@ class TodosController extends Controller
         // 現在認証しているユーザーのIDを取得
         $id = Auth::id();
 
-        // Todoモデルから全てのデータをallメソッドで取得
-        $todos = Todo::all();
+        // ログインユーザーに紐づくTodoモデルからデータを取得
+        $todos = Todo::where('user_id', 1)->get();
 
         return view('todos/index', [
             'todos' => $todos,
