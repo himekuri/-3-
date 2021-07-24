@@ -14,9 +14,10 @@ use Illuminate\Http\Request;
 */
 
 // スタンプ機能
-Route::group(['middleware' => 'auth'], function() {
-    Route::post('/punchin', 'StampsController@punchIn')->name('stamp/punchin');
-});
+Route::get('/punchin', 'StampsController@punchIn')->name('stamp/punchin');
+// Route::group(['middleware' => 'auth'], function() {
+//     Route::get('/punchin', 'StampsController@punchIn')->name('stamp/punchin');
+// });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
