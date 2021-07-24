@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Card from "../parts/Card";
 import Overlay from "../Layouts/Overlay";
-import SlideIn from "../Layouts/SlideIn";
 import ReactCardFlip from "react-card-flip";
 
 const fortuneResult = ["大吉", "中吉", "吉", "凶"];
@@ -27,7 +26,6 @@ const luckyColor = [
 const Fortune: React.FC = ({ closeNav }: any) => {
     const [display, setDisplay] = useState(false);
     const [fortune, setFortune] = useState("");
-    const [comment, setComment] = useState("");
     const [color, setColor] = useState("");
     const [item, setItem] = useState("");
 
@@ -49,15 +47,6 @@ const Fortune: React.FC = ({ closeNav }: any) => {
         setColor(color);
 
         setDisplay(!display);
-        if (fortune === "大吉") {
-            setComment("最高の1日だね！！");
-        } else if (fortune === "凶") {
-            setComment("まあ、そういう日もあるよね、、");
-        } else if (fortune === "中吉") {
-            setComment("いい1日になりますように！！");
-        } else {
-            setComment("まずまずの1日だね");
-        }
     };
 
     const closeMordal = () => {
@@ -72,28 +61,34 @@ const Fortune: React.FC = ({ closeNav }: any) => {
             {display && (
                 <div>
                     <Overlay>
-                        <SlideIn>
+                        <div className="">
                             <div className="container" onClick={closeNav}>
                                 <ReactCardFlip isFlipped={isFlipped}>
-                                    <div className="" onClick={flipCard}>
-                                        <div className="flex flex-col">
+                                    <div
+                                        className="bg-white"
+                                        onClick={flipCard}
+                                    >
+                                        <div className="flex flex-col text-red-600">
                                             <span>お</span>
                                             <span>み</span>
                                             <span>く</span>
                                             <span>じ</span>
                                         </div>
                                     </div>
-                                    <div onClick={flipCard}>
-                                        <p className="">
+                                    <div
+                                        onClick={flipCard}
+                                        className="bg-white text-left m-auto"
+                                    >
+                                        <p className="py-2">
                                             今日の運勢は{fortune}です
                                         </p>
-                                        <p className="">
-                                            ラッキーアイテムは{item}
+                                        <p className="pb-2">
+                                            <span className="text-blue-500">ラッキーアイテム</span>：{item}
                                         </p>
-                                        <p className="">
-                                            ラッキーカラーは{color}
+                                        <p className="pb-2">
+                                        <span className="text-green-500">ラッキーカラー</span>：{color}
                                         </p>
-                                        <p className="">{comment}</p>
+                                        <p className="pb-2">今日も1日頑張ろう！！</p>
                                     </div>
                                 </ReactCardFlip>
                             </div>
@@ -104,7 +99,7 @@ const Fortune: React.FC = ({ closeNav }: any) => {
                             >
                                 戻る
                             </button>
-                        </SlideIn>
+                        </div>
                     </Overlay>
                 </div>
             )}

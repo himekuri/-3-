@@ -11,7 +11,7 @@ const StampCard = styled.div`
     cursor: pointer;
     transform-style: preserve-3d;
     transition: 1s;
-    &:hover {
+    &:active {
         transform: rotateY(180deg);
     }
 `;
