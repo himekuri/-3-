@@ -11,7 +11,7 @@ class Todo extends Model
         'notstart' => [ 'label' => '未着手', 'class' => '' ],
         'working' => [ 'label' => '着手中', 'class'=>'' ],
         'done' => [ 'label' => '完了' , 'class'=> ''],
-        'expired' =>[ 'lavel' => '期限切れ', 'class'=>'']
+        'expired' =>[ 'label' => '期限切れ', 'class'=>'']
     ];
 
 

@@ -20,11 +20,8 @@
             <div class="row">
                 <div class="col col-md-4">
                     <nav class="panel panel-default">
-                        <div class="panel-heading">タスク</div>
+                        <div class="panel-heading">完了済みタスク</div>
                         <div class="panel-body">
-                            <a href="#" class="btn btn-default btn-block">
-                                タスクを追加する
-                            </a>
                         </div>
                         <div class="list-group">
                             @foreach($todos as $todo)
@@ -63,7 +60,7 @@
                                         <span class="label {{ $todo->status_class }}">{{ $todo->status_label }}</span>
                                     </td>
                                     <td>{{ $todo->formatted_due_date }}</td>
-                                    <td><a href="#">編集</a></td>
+                                    <td><a href="{{ route('todos.edit', ['todo_id' => $todo->id]) }}">編集</a></td>
                                 </tr>
                                 @endforeach
                             </tbody>

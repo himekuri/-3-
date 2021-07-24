@@ -27,8 +27,8 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 Route::get('/todos', 'TodosController@index')->name('todos.index');
 Route::get('/todos/create', 'TodosController@showCreateForm')->name('todos.create');
 Route::post('/todos/create', 'TodosController@create');
-Route::get('/todos/edit', 'TodosController@showEditForm')->name('todos.edit');
-Route::post('/todos/edit', 'TodosController@edit');
+Route::get('/todos/edit/{todo_id}', 'TodosController@showEditForm')->name('todos.edit');
+Route::post('/todos/edit/{todo_id}', 'TodosController@edit');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
