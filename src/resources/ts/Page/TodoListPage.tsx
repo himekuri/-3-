@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Layout from "../Layouts/Layout";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Link } from "react-router-dom";
 
 const todoList = [
     { text: "英語の勉強", time: "2021-07-24" },
@@ -69,6 +70,7 @@ const TodoListPage = () => {
                     </div>
                 </div>
             </div>
+            <Link to="/">トップに戻る</Link>
         </Layout>
     );
 };
