@@ -15,14 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+// ユーザ登録
+Route::get('signup', 'Auth\RegisterController@showRegistrationForm');
+Route::post('signup', 'Auth\RegisterController@register');
 
-Route::get('/home', 'HomeController@index')->name('home');
+// 認証
+Route::get('login', 'Auth\LoginController@showLoginForm');
+Route::post('login', 'Auth\LoginController@login');
+Route::get('logout', 'Auth\LoginController@logout');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
+// スタンプ機能
 Route::group(['middleware' => 'auth'], function() {
-    Route::post('/punchin', 'StampsController@punchIn')->name('stamp/punchin');
+    Route::post('/punchin', 'StampsController@punchIn');
 });
