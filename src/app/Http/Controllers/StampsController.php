@@ -28,6 +28,6 @@ class StampsController extends Controller
 
         $number = $stamp->id %10;
 
-        return redirect()->back()->with('number', $number);
+        return $number;
     }
 }
