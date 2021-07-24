@@ -42,7 +42,6 @@ const Stamp = () => {
     };
     const openMordal = () => {
         setDisplay(!display);
-        getStamp();
     };
 
     const closeMordal = () => {
@@ -63,7 +62,7 @@ const Stamp = () => {
                         </StampCard>
                         <div className="text-center">
                             <button
-                                onClick={openMordal}
+                                onClick={getStamp}
                                 className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded my-5 mr-3"
                             >
                                 スタンプ押す
