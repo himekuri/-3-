@@ -45,9 +45,11 @@ const TodoListPage = () => {
                             return (
                                 <div className="mb-4" key={todo.text}>
                                     <div className="flex">
-                                        <p className="pr-4 text-grey-darkest">
-                                            {todo.text}
-                                        </p>
+                                        <ul>
+                                            <li className="pr-4 text-grey-darkest list-disc">
+                                                {todo.text}
+                                            </li>
+                                        </ul>
                                         <p>{todo.time}</p>
                                     </div>
                                     <div className="grid grid-cols-3">

@@ -15,10 +15,10 @@ const TopPage = () => {
                     <Proverb />
                     <Fortune />
                     <Link to="/TodoListPage">
-                        <Card text={"todoリスト"} img={"toast.png"} />
+                        <Card text={"todoリスト"} img={"salad.png"} />
                     </Link>
                 </div>
-            </Layout>{" "}
+            </Layout>
         </>
     );
 };
