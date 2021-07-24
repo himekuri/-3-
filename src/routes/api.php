@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::post('/punchin', 'StampsController@punchIn');
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
