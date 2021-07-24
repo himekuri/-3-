@@ -28,3 +28,10 @@ Route::get('logout', 'Auth\LoginController@logout');
 Route::group(['middleware' => 'auth'], function() {
     Route::post('/punchin', 'StampsController@punchIn');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/{any}', function () {
+    return view('welcome');
+})->where('any','.*');
