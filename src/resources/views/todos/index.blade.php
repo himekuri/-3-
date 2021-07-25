@@ -18,21 +18,7 @@
     <main>
         <div class="container">
             <div class="row">
-                <div class="col col-md-4">
-                    <nav class="panel panel-default">
-                        <div class="panel-heading">完了済みタスク</div>
-                        <div class="panel-body">
-                        </div>
-                        <div class="list-group">
-                            @foreach($todos as $todo)
-                            <a href="{{ route('todos.index') }}" class="list-group-item">
-                                {{ $todo->title }}
-                            </a>
-                            @endforeach
-                        </div>
-                    </nav>
-                </div>
-                <div class="column col-md-8">
+            <div class="column col-md-8">
                     <!-- ここにタスクが表示される -->
                     <div class="panel panel-default">
                         <div class="panel-heading">タスク</div>
@@ -50,6 +36,7 @@
                                     <th>状態</th>
                                     <th>期限</th>
                                     <th></th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -61,12 +48,56 @@
                                     </td>
                                     <td>{{ $todo->formatted_due_date }}</td>
                                     <td><a href="{{ route('todos.edit', ['todo_id' => $todo->id]) }}">編集</a></td>
+                                    <td>
+                                        <form method="post" action="/todos/delete/{{$todo->id}}">
+{{ csrf_field() }}
+<input type="submit" value="削除" class="btn btn-danger btn-sm" onclick='return confirm("削除してもよろしいですか？");'>
+</form></td>
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
                     </div>
                 </div>
+                <div class="col col-md-4">
+                    <nav class="panel panel-default">
+                        <div class="panel-heading">完了済みタスク</div>
+                        <div class="panel-body">
+                        </div>
+                        
+                        <div class="list-group">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>タイトル</th>
+                                    <th>状態</th>
+                                    <th>期限</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($todo_done as $td)
+                                <tr>
+                                    <td>{{ $td->content }}</td>
+                                    <td>
+                                        <span class="label {{ $td->status_class }}">{{ $td->status_label }}</span>
+                                    </td>
+                                    <td>{{ $td->formatted_due_date }}</td>
+                                    <td><a href="{{ route('todos.edit', ['todo_id' => $td->id]) }}">編集</a></td>
+                                    <td>
+                                        <form method="post" action="/todos/delete/{{$td->id}}">
+{{ csrf_field() }}
+<input type="submit" value="削除" class="btn btn-danger btn-sm" onclick='return confirm("削除してもよろしいですか？");'>
+</form></td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        </div>
+                    </nav>
+                </div>
+           
             </div>
         </div>
     </main>
