@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ToDo App</title>
+    <title>Morning Happy</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
     <header>
         <nav class="my-navbar">
-            <a class="my-navbar-brand" href="/">ToDo App</a>
+            <a class="my-navbar-brand" href="/">Morning Happy</a>
         </nav>
     </header>
     <main>
@@ -79,18 +79,22 @@
     @import url('https://cdnjs.cloudflare.com/ajax/libs/bootflat/2.0.4/css/bootflat.min.css');
 
     body {
-        background-color: #f4f7f8;
+        background-color: #EFEDE3;
     }
 
     .navbar {
         margin: 2rem 0 2.5rem 0;
     }
 
+    .navbar a{
+        margin-left: 2rem;
+    }
+
     .my-navbar {
         align-items: center;
-        background: #333;
+        background: #ffc107;
         display: flex;
-        height: 6rem;
+        height: 56px;
         justify-content: space-between;
         padding: 0 2%;
         margin-bottom: 3rem;
@@ -102,7 +106,8 @@
 
     .my-navbar-brand,
     .my-navbar-item {
-        color: #8c8c8c;
+        color: #f4f7f8;
+        font-size: 20px;
     }
 
     .my-navbar-brand:hover,
@@ -121,4 +126,8 @@
     .form-control[readonly] {
         background-color: #fff;
     }
+
+    .panel .panel-heading {
+  background-color: #FEF2C7;
+}
 </style>

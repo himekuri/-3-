@@ -12,7 +12,7 @@
 <body>
 <header>
   <nav class="my-navbar">
-    <a class="my-navbar-brand" href="/">ToDo App</a>
+    <a class="my-navbar-brand" href="/">Morning Happy</a>
   </nav>
 </header>
 <main>
@@ -86,7 +86,7 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/bootflat/2.0.4/css/bootflat.min.css");
 
 body {
-    background-color: #f4f7f8;
+    background-color: #EFEDE3;
 }
 
 .navbar {
@@ -95,9 +95,9 @@ body {
 
 .my-navbar {
     align-items: center;
-    background: #333;
+    background: #ffc107;
     display: flex;
-    height: 6rem;
+    height: 56px;
     justify-content: space-between;
     padding: 0 2%;
     margin-bottom: 3rem;
@@ -109,7 +109,7 @@ body {
 
 .my-navbar-brand,
 .my-navbar-item {
-    color: #8c8c8c;
+  color: #ffffff;
 }
 
 .my-navbar-brand:hover,
@@ -127,6 +127,10 @@ a.my-navbar-item:hover {
 .form-control[disabled],
 .form-control[readonly] {
     background-color: #fff;
+}
+
+.panel .panel-heading {
+  background-color: #FEF2C7;
 }
 
 </style>

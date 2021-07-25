@@ -11,6 +11,7 @@ const App: React.FC = () => {
             <Switch>
                 <Route path="/" exact component={TopPage} />
                 <Route path="/todoListPage" component={TodoListPage} />
+                <Route path="/todos" component={TodoListPage} />
             </Switch>
         </Router>
     );

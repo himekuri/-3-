@@ -14,7 +14,7 @@ const TopPage = () => {
                     <Top />
                     <Proverb />
                     <Fortune />
-                    <Link to="/TodoListPage">
+                    <Link to="/todos">
                         <Card text={"todoリスト"} img={"salad.png"} />
                     </Link>
                 </div>
