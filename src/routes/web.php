@@ -29,6 +29,7 @@ Route::get('/todos/create', 'TodosController@showCreateForm')->name('todos.creat
 Route::post('/todos/create', 'TodosController@create');
 Route::get('/todos/edit/{todo_id}', 'TodosController@showEditForm')->name('todos.edit');
 Route::post('/todos/edit/{todo_id}', 'TodosController@edit');
+Route::post('/todos/delete/{todo_id}', 'TodosController@destroy')->name('todos.delete');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

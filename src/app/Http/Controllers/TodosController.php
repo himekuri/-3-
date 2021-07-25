@@ -24,10 +24,14 @@ class TodosController extends Controller
         // 現在認証しているユーザーのIDを取得
         $id = Auth::id();
         // ログインユーザーに紐づくTodoモデルからデータを取得
-        $todos = Todo::where('user_id', 1)->get();
+        $todos = Todo::where('user_id', $id)->where('status','!=', 'done')->get();
+
+        $todo_done = Todo::where('status', 'done')->where('user_id', $id)->get();
 
         return view('todos/index', [
             'todos' => $todos,
+            'user' => $user,
+            'todo_done' => $todo_done,
         ]);
     }
 
@@ -53,8 +57,9 @@ class TodosController extends Controller
         $todo->deadline = $request->deadline;
         $todo->user_id = $id;
 
-
         $todo->save();
+
+        return redirect()->route('todos.index');
     }
 
     public function showEditForm(int $id)
@@ -65,6 +70,7 @@ class TodosController extends Controller
             'todo' => $todo,
         ]);
     }
+
     public function edit(int $todo_id, EditTodo $request)
     {
         $todo = Todo::find($todo_id);
@@ -77,4 +83,13 @@ class TodosController extends Controller
 
         return redirect()->route('todos.index');
     }
+
+    public function destroy($id)
+    {
+        $todo = Todo::find($id);
+        $todo->delete();
+
+        return redirect()->route('todos.index');
+    }
+
 }
