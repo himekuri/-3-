@@ -70,7 +70,7 @@ const TodoListPage = () => {
                     </div>
                 </div>
             </div>
-            <Link to="/topPage">トップに戻る</Link>
+            <Link to="/">トップに戻る</Link>
         </Layout>
     );
 };

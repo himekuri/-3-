@@ -15,7 +15,6 @@ const BackColor = styled.div`
 const Layout = ({ children }: Props) => {
     return (
         <BackColor>
-            <Header />
             <main className="w-11/12 m-auto">
                 <div className="w-11/12 m-auto">{children}</div>
             </main>
