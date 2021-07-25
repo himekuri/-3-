@@ -11,7 +11,7 @@ const StampCard = styled.div`
     cursor: pointer;
     transform-style: preserve-3d;
     transition: 1s;
-    &:active {
+    &:hover {
         transform: rotateY(180deg);
     }
 `;
@@ -56,22 +56,17 @@ const Stamp = () => {
             {display && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
                     <div>
-                        <StampCard>
+                        <p className="text-xl text-gray-50 pb-4">スタンプカードをクリックしてね！！</p>
+                        <StampCard onClick={getStamp}>
                             <FirstCard src="stamp0.png" alt="" />
                             <SecondCard src="stamp1.png" alt="" />
                         </StampCard>
                         <div className="text-center">
                             <button
-                                onClick={getStamp}
-                                className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded my-5 mr-3"
-                            >
-                                スタンプ押す
-                            </button>
-                            <button
                                 onClick={closeMordal}
-                                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-5"
+                                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                             >
-                                閉じる
+                                トップに戻る
                             </button>
                         </div>
                     </div>

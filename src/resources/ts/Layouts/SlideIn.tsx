@@ -18,7 +18,7 @@ const fadeIn = keyframes`
 
 const SlideInPart = styled.div`
     padding: 2px;
-    background-color: white;
+    background-color: #F9FAFB;
     width: 75%;
     animation: ${fadeIn} 0.5s ease-in-out;
 `;

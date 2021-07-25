@@ -10,7 +10,7 @@ const TopPage = () => {
     return (
         <>
             <Layout>
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-2 gap-6 pt-36">
                     <Top />
                     <Proverb />
                     <Fortune />
