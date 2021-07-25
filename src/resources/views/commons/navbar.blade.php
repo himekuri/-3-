@@ -22,3 +22,13 @@
         </div>
     </nav>
 </header>
+
+<style>
+    .navbar-dark .navbar-toggler {
+    color: #ffffff;
+    border-color: #ffffff;
+}
+.navbar-nav {
+    color: #ffffff;
+}
+</style>
