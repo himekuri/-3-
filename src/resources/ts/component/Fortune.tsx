@@ -20,18 +20,18 @@ const luckyItem = [
     "財布"
 ];
 const luckyColor = [
-    "ブルー",
-    "ブラック",
-    "レッド",
-    "イエロー",
-    "グリーン",
-    "ホワイト"
+    { text: "ブルー", color: "text-blue-500" },
+    { text: "ブラック", color: "text-black" },
+    { text: "レッド", color: "text-red-500" },
+    { text: "イエロー", color: "text-yellow-500" },
+    { text: "グリーン", color: "text-green-500" },
+    { text: "ホワイト", color: "text-gray-50" }
 ];
 
 const Fortune: React.FC = ({ closeNav }: any) => {
     const [display, setDisplay] = useState(false);
     const [fortune, setFortune] = useState({});
-    const [color, setColor] = useState("");
+    const [color, setColor] = useState({});
     const [item, setItem] = useState("");
 
     const [isFlipped, setIsFlipped] = useState(false);
@@ -73,7 +73,7 @@ const Fortune: React.FC = ({ closeNav }: any) => {
                             <div className="container" onClick={closeNav}>
                                 <ReactCardFlip isFlipped={isFlipped}>
                                     <div
-                                        className="bg-white py-20 px-20"
+                                        className="bg-gray-50 py-20 px-20"
                                         onClick={flipCard}
                                     >
                                         <div className="flex flex-col text-red-600 text-xl font-bold">
@@ -85,26 +85,34 @@ const Fortune: React.FC = ({ closeNav }: any) => {
                                     </div>
                                     <div
                                         onClick={flipCard}
-                                        className="bg-white text-left m-auto text-xl py-10 px-10"
+                                        className=" bg-gray-50 text-left m-auto text-xl py-10 px-10"
                                     >
-                                        <p className='py-4'>
+                                        <p className="py-4">
                                             今日の運勢は
-                                            <span className={`text-2xl font-semibold ${fortune.color}`}>
+                                            <span
+                                                className={`text-2xl font-semibold ${fortune.color}`}
+                                            >
                                                 {fortune.fortune}
                                             </span>
                                             です
                                         </p>
                                         <p className="pb-4">
-                                            <span className="text-blue-500">
+                                            <span className="">
                                                 ラッキーアイテム
                                             </span>
-                                            ：{item}
+                                            ：
+                                            <span className="font-bold text-blue-500">
+                                                {item}
+                                            </span>
                                         </p>
                                         <p className="pb-4">
-                                            <span className="text-green-500">
+                                            <span className="">
                                                 ラッキーカラー
                                             </span>
-                                            ：{color}
+                                            ：
+                                            <span className={`font-bold ${color.color}`}>
+                                                {color.text}
+                                            </span>
                                         </p>
                                         <p className="pb-4">
                                             今日も1日頑張ろう！！
